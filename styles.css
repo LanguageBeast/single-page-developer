@@ -70,7 +70,7 @@ h3 {
   line-height: 1;
 }
 
-h1 {
+.header-x1 {
   font-size: 2.5rem;
   font-size: clamp(2.5rem, 0.7rem + 7.68vw, 5.5rem);
   letter-spacing: -0.028em;
@@ -453,4 +453,60 @@ h1 > span {
     translate: -40% 50%;
     left: 100%;
   }
+}
+
+/* PROJECTS */
+
+.projects {
+}
+
+.projects__wrapper {
+  padding-block: 80px;
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  justify-items: center;
+}
+.projects__headline {
+  grid-column: 1 / 2;
+  margin-block-end: 0;
+}
+
+.projects__contact {
+  grid-column: 2 / 3;
+  justify-self: end;
+}
+
+.projects__item {
+  grid-column: 1 / 3;
+}
+
+.projects__image {
+  margin-block-end: 20px;
+}
+
+.projects__name {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-block-end: 7px;
+}
+
+.projects__tags {
+  margin-block-end: 20px;
+}
+
+.projects__tags span {
+  margin-inline-end: 18px;
+}
+
+.projects__links {
+}
+
+.projects__links a {
+  margin-inline-end: 30px;
 }
