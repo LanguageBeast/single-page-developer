@@ -8,14 +8,14 @@
   --text2: hsl(0, 0%, 85%);
   --invalid: hsl(7, 100%, 68%);
   --fs-18: 1.125rem;
-  --fs-88: 5.5rem;
-  --fs-72: 4.5rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-32: 2rem;
+  --fs-36: 2.25rem;
   --fs-40: 2.5rem;
   --fs-48: 3rem;
-  --fs-36: 2.25rem;
-  --fs-32: 2rem;
-  --fs-24: 1.5rem;
-  --fs-20: 1.25rem;
+  --fs-72: 4.5rem;
+  --fs-88: 5.5rem;
   --container: 69.375rem;
   --transition1: 250ms ease-in-out;
 }
@@ -36,7 +36,10 @@ html {
   box-sizing: inherit;
 }
 
-body {
+body,
+input,
+textarea,
+button {
   font-family: "Space Grotesk", sans-serif;
 }
 
@@ -93,7 +96,8 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-a.underline {
+a.underline,
+button {
   display: inline-block;
   padding-bottom: 0.625rem;
   font-size: 1rem;
@@ -462,11 +466,8 @@ h1 > span {
 
 /* PROJECTS */
 
-.projects {
-}
-
 .projects__wrapper {
-  padding-block: 80px;
+  padding-block: 140px;
 }
 
 .projects__grid {
@@ -508,9 +509,6 @@ h1 > span {
 
 .projects__tags span {
   margin-inline-end: 18px;
-}
-
-.projects__links {
 }
 
 .projects__links a {
@@ -594,26 +592,122 @@ h1 > span {
 /* CONTACT */
 
 .contact {
+  background-color: var(--bg-body2);
+  position: relative;
 }
 
 .contact__wrapper {
+  max-width: 27.8rem;
+  padding-block: 42px;
 }
 
 .contact__text {
+  text-align: center;
+}
+
+.contact__headline {
+  margin-block-end: var(--fs-20);
 }
 
 .contact__form {
+  margin-inline: auto;
 }
 
 .contact__control {
+  position: relative;
+  margin-block-end: 16px;
 }
 
 .contact__control input,
 .contact__control textarea {
+  width: 100%;
+  padding-block: 16px;
+  padding-inline: 24px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--text1);
+  background: transparent;
+  font-size: 1rem;
+  line-height: 1.625;
+  color: var(--text1);
+  transition: border-bottom-color 200ms ease-in-out;
 }
 
-.contact__control input {
+.contact__control input:focus-visible,
+.contact__control textarea:focus-visible {
+  border-bottom-color: var(--accent);
+}
+input:invalid:focus,
+input:invalid:focus ~ img.contact__invalid-icon,
+textarea:invalid:focus {
+  border-bottom-color: var(--invalid);
+  display: inline-block;
 }
 
-.contact__control textaerea {
+.contact__control > *::placeholder {
+  color: var(--text1);
+  opacity: 0.5;
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 1.625;
+}
+
+.contact__control button {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  float: right;
+}
+
+.contact__invalid-icon {
+  display: none;
+  position: absolute;
+  top: 30%;
+  right: 0;
+  width: var(--fs-24);
+  height: var(--fs-24);
+}
+
+textarea:invalid:focus ~ img.contact__invalid-icon {
+  display: inline-block;
+  top: 0;
+}
+
+.contact__rings {
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  translate: -75%;
+}
+
+@media (min-width: 37.5em) {
+}
+.contact__wrapper {
+  padding-block: 104px;
+}
+.contact__rings {
+  bottom: 66px;
+  translate: -70%;
+}
+
+/* 999.98px */
+@media (min-width: 62.49875em) {
+  .contact__wrapper {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 27.8rem);
+    justify-content: space-evenly;
+    padding-block: 104px;
+  }
+
+  .contact__text {
+    text-align: left;
+  }
+  .contact__headline {
+    margin-block-end: var(--fs-36);
+  }
+
+  .contact__rings {
+    bottom: 20px;
+  }
 }
